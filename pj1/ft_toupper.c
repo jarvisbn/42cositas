@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 18:58:34 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/18 19:11:50 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:09:22 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int	ft_toupper(int c)
 	else
 		return (c);
 }
-
-int main()
+/*int main()
 {
 	int c = ft_toupper('a');
 	int b = ft_toupper('7');
 	printf("%d\n", c);
 	printf("%d", b);
-}
+}*/

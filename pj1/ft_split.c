@@ -5,33 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 17:25:05 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/10/02 20:15:55 by jbayona-         ###   ########.fr       */
+/*   Created: 2023/10/24 18:44:41 by jbayona-          #+#    #+#             */
+/*   Updated: 2023/10/24 20:59:55 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t 	count_word(char const *s, char c)
+int	count_word(const char *s, char c)
 {
-	size_t count;
-	size_t i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
-	while(s[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (s[i] != c && s[i] != '\0')
-		   count++;
-		i++;	
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0' && s[i] != c)
+		{
+			count++;
+			while (s[i] != '\0' && s[i] != c)
+				i++;
+		}
 	}
 	return (count);
 }
 
-char    *cpy_to_c(const char *s1, int start, int end)
+char	*cpy_to_c(const char *s1, int start, int end)
 {
-	char *sub;
-	int i;
+	int		i;
+	char	*sub;
 
 	i = 0;
 	sub = malloc((end - start + 1) * sizeof(char));
@@ -47,47 +52,58 @@ char    *cpy_to_c(const char *s1, int start, int end)
 	return (sub);
 }
 
-char 	**ft_split(char const *s, char c)
+void	to_free(char **sol, size_t k, size_t j)
 {
-	size_t i;
-	size_t j;
-	size_t k;
-	int start;
-	char **sol;
+	while (k < j)
+	{
+		free(sol[k]);
+		k++;
+	}
+	free(sol);
+}
+
+char	**split_cpy(const char *s, char **sol, char c)
+{
+	size_t	i;
+	size_t	j;
+	int		start;
 
 	i = 0;
 	j = 0;
-	k = 0;
 	start = -1;
-	if (!s || !(sol=malloc((count_word(s, c) + 1) * sizeof(char *))))
-		return (0);
-	while (i <= ft_strlen(s))
+	while (s[i] != '\0')
 	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0' && s[i] != c)
 		{
+			start = i;
+			while (s[i] != '\0' && s[i] != c)
+				i++;
 			sol[j] = cpy_to_c(s, start, i);
 			if (!sol[j])
-			{
-				while (k++ < j)
-				{
-					free(sol[k]);
-					k++;
-				}
-			   free(sol);
-			   return (0);
-			}
+				to_free(sol, 0, j);
 			j++;
 			start = -1;
 		}
-		i++;
 	}
-	sol[j] = 0;
+	sol[j] = NULL;
 	return (sol);
 }
 
-int main() 
+char	**ft_split(const char *s, char c)
+{
+	char	**sol;
+
+	if (!s)
+		return (0);
+	sol = malloc((count_word(s, c) + 1) * sizeof(char *));
+	if (!sol)
+		return (0);
+	sol = split_cpy(s, sol, c);
+	return (sol);
+}
+/*int main() 
 {
 	int i = 0;
 	int j = 0;
@@ -107,5 +123,4 @@ int main()
     free(split);
 
     return 0;
-}
- 
+}*/

@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:53:24 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/14 18:03:14 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:13:12 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	ft_isascii(int c)
 {
 	if (c < 0 || c > 127)
-		c = 0;
-	return (c);
+		return (0);
+	return (1);
 }
 
-int main()
+/*int main()
 {
 	int c = ft_isascii(127);
 	printf("%d", c);
-}
+}*/

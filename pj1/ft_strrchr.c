@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:04:07 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/24 15:24:10 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/29 20:01:18 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,26 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*str;
-	char *sol;
+	int		i;
+	char	b;
 
-	sol = 0;
-	while (*s)
+	b = (char)c;
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		if (*s == c)
-			str = s;
-		s++;
+		if (s[i] == b)
+			return ((char *)s + i);
+		i--;
 	}
-	if (c == 0)
-	{
-		sol = (char *)s;
-		return (sol);
-	}
-	if (*str == c)
-		sol = (char *)str;
-	return (sol);
+	return (0);
 }
-
-int main()
+/*int main()
 {
 	const char *str = "Hello, World!";
-	char *ptr1 = ft_strrchr(str,'l');
-    char *ptr = strrchr(str, 'l');
+	char *ptr1 = ft_strrchr(str,'\0');
+    char *ptr = strrchr(str, '\0');
 
 
 	printf("%s\n", ptr);
 	printf("%s", ptr1);
-}
+}*/

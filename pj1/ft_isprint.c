@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:06:39 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/14 18:25:35 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:16:17 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_isprint(int c)
 	return (c);
 }
 
-int main()
+/*int main()
 {
 	int c = ft_isprint('~');
 	printf("%d", c);
-}
+}*/

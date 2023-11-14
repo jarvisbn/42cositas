@@ -1,50 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 18:24:34 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/10/29 18:56:04 by jbayona-         ###   ########.fr       */
+/*   Created: 2023/10/08 11:39:31 by jbayona-          #+#    #+#             */
+/*   Updated: 2023/10/29 17:47:01 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*sol;
-	int		size1;
-	int		size2;
-	int		i;
+	unsigned int	i;
+	char			*sol;
 
-	i = -1;
-	if (!s1 || !s2)
+	i = 0;
+	if (!s)
 		return (0);
-	size1 = ft_strlen(s1);
-	size2 = ft_strlen(s2);
-	sol = malloc(sizeof(char) * (size1 + size2 + 1));
+	sol = malloc((ft_strlen(s) + 1) * (sizeof(char)));
 	if (!sol)
 		return (0);
-	while (i++ <= size1)
+	while (s[i] != '\0')
 	{
-		sol[i] = s1[i];
+		sol[i] = f(i, s[i]);
+		i++;
 	}
-	i = -1;
-	while (i++ <= size2)
-	{
-		sol[size1] = s2[i];
-		size1++;
-	}
-	sol[size1] = '\0';
+	sol[i] = '\0';
 	return (sol);
 }
-/*int main()
+/*char myft(unsigned int i, char str)
 {
-	char *s1 = "hola";
-	char *s2 = "quetalllall";
-	char *sol = ft_strjoin(s1, s2);
-	printf("%s", sol);
+	(void)i;
+	 if (str >= 'a' && str <= 'z') 
+		 return (str - 32);
+	 return str;
+}	
 
+int main()
+{
+	char str[] = "hola elio";
+	char *result = ft_strmapi(str, myft);
+	printf("%s", result);
+	free(result);
 }*/

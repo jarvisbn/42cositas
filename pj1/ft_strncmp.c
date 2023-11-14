@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 15:28:56 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/24 15:48:16 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:45:06 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
+
 	i = 0;
 	while (i < n)
 	{
 		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - s2[i]);
 		if (s1[i] == '\0' || s2[i] == '\0')
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - s2[i]);
 		i++;
 	}
 	return (0);
 }
-
-int main()
+/*int main()
 {
 	char	*s1 = "ho\0la";
 	char	*s2 = "holas";
@@ -38,4 +38,4 @@ int main()
 	int sol1 = strncmp(ss1, ss2, n);
 	printf("%d\n", sol);
 	printf("%d", sol1);
-}
+}*/

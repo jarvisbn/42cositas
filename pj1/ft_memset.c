@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:36:11 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:28:06 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:15:40 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ void	*ft_memset(void *b, int c, size_t len)
 	str = (char *)b;
 	while (len--)
 		*str++ = c;
-	return(b);
+	return (b);
 }
-
-int main()
+/*int main()
 {
 	char array[10];
 
 	printf("%s\n", ft_memset(array, '4', 10));
 	printf("%s", memset(array, '4', 10));
-}
+}*/

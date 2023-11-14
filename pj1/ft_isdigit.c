@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 19:39:51 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/11 20:13:31 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:26:56 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_isdigit(int c)
 	return (c);
 }
 
-int main()
+/*int main()
 {
 	int f = ft_isdigit('9');
 	printf("%d", f);
-}
+}*/

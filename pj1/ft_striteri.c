@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 17:27:36 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/10/08 13:12:52 by jbayona-         ###   ########.fr       */
+/*   Created: 2023/10/08 12:25:37 by jbayona-          #+#    #+#             */
+/*   Updated: 2023/10/29 17:22:37 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	if (c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || c > 'z')
-		c = 0;
-	return (c);
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &(s[i]));
+		i++;
+	}
 }
-/*int main()
+/*void myft(unsigned int i, char *c)
 {
-	int c = ft_isalnum('a');
-	int a = isalnum('1');
-	int h = ft_isalnum(':');
-	printf("%d", c);
-	printf("%d", h);
-	printf("%d", a);
+	(void)i;
+    if (*c >= 'a' && *c <= 'z') 
+        *c = *c - 32;
+}
+
+int main()
+{
+	char str[] = "hola elio";
+	ft_striteri(str, myft);
+	printf("%s", str);
 }*/

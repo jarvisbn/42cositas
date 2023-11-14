@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 18:09:51 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/11 20:08:17 by jbayona-         ###   ########.fr       */
+/*   Created: 2023/10/08 12:37:12 by jbayona-          #+#    #+#             */
+/*   Updated: 2023/10/09 19:23:03 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c < 'A' || (c > 'Z' && c < 'a') || c > 'z')
-		c = 0;
-	return (c);
+	write(fd, s, ft_strlen(s));
 }
-int main()
+/*int main()
 {
-	int f = ft_isalpha('a');
-	printf("%d", f);
-}
+	char *s = "hola Elio y Chambelan";
+	ft_putstr_fd(s, 1);
+}*/

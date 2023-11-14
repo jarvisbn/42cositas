@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:25:53 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/24 17:44:12 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:13:28 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char *p1;
-	const unsigned char *p2;
-	int sol;
-	size_t i;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
+	int					sol;
+	size_t				i;
 
 	i = 0;
 	p1 = s1;
@@ -31,10 +31,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		}
 		i++;
 	}
-	return  (0);
+	return (0);
 }
-
-int main()
+/*int main()
 {
 	unsigned char buffer[] = {};
 	unsigned char buffer1[] = {};
@@ -42,4 +41,4 @@ int main()
 	int sol2 = memcmp(buffer, buffer1, sizeof(buffer1));
 	printf("%d\n", sol1);
 	printf("%d\n", sol2);
-}
+}*/

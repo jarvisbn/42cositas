@@ -6,7 +6,7 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:09:51 by jbayona-          #+#    #+#             */
-/*   Updated: 2023/09/11 20:08:17 by jbayona-         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:13:36 by jbayona-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_isalpha(int c)
 		c = 0;
 	return (c);
 }
-int main()
+/*int main()
 {
 	int f = ft_isalpha('a');
 	printf("%d", f);
-}
+}*/
