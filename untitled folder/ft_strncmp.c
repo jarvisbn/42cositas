@@ -6,7 +6,11 @@
 /*   By: jbayona- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 15:28:56 by jbayona-          #+#    #+#             */
+<<<<<<< HEAD:untitled folder/ft_strncmp.c
 /*   Updated: 2023/11/16 17:38:59 by jbayona-         ###   ########.fr       */
+=======
+/*   Updated: 2023/10/29 19:45:06 by jbayona-         ###   ########.fr       */
+>>>>>>> a597c81aa21364582c6aae1aa487902d9b88e763:pj1/ft_strncmp.c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +24,15 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (i < n)
 	{
 		if (s1[i] != s2[i])
+<<<<<<< HEAD:untitled folder/ft_strncmp.c
 			return ((int)((unsigned char)s1[i] -(unsigned char)s2[i]));
 		if (s1[i] == '\0')
 			return (0);
+=======
+			return ((unsigned char)s1[i] - s2[i]);
+		if (s1[i] == '\0' || s2[i] == '\0')
+			return ((unsigned char)s1[i] - s2[i]);
+>>>>>>> a597c81aa21364582c6aae1aa487902d9b88e763:pj1/ft_strncmp.c
 		i++;
 	}
 	return (0);
