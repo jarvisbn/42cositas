@@ -62,10 +62,14 @@ int type_format(char type, va_list ap)
 		total += print_c(va_arg(ap, int));
 	else if (type == 's')
 		total += print_s(va_arg(ap, char *));
-	else if (type == 'd')
-		total += print_digit((long)(va_arg(ap, int)), 10);
-	else if (type == 'x')
-		total += print_digit((unsigned int)(va_arg(ap, int)), 16);
+	else if (type == 'p')
+		total += print_p(va_arg(ap, unsigned long long));
+	else if (type == 'u')
+		total +=
+	else if (type == 'd' || type == 'i')
+		total += print_digit((long)(va_arg(ap, int)), 10, type);
+	else if (type == 'x' ||  type == 'X')
+		total += print_digit((unsigned int)(va_arg(ap, int)), 16, type);
 	return total;
 }
 
@@ -81,7 +85,10 @@ int ft_printf(char const *format, ...)
 		if (*format == '%')
 		{
 			++format;
-			total += type_format(*format, ap);
+			if (*format == '%')
+				total += write(1, format, 1);
+			else
+				total += type_format(*format, ap);
 		}
 		else
 			total += write(1, format, 1);
